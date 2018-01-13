@@ -64,6 +64,10 @@ func SendEmail(emailData Email) *ses.SendEmailOutput {
 					Data:    aws.String(emailData.Text), // Required
 					Charset: aws.String("UTF-8"),
 				},
+				Html: &ses.Content{
+					Data:    aws.String(emailData.HTML), // Required
+					Charset: aws.String("UTF-8"),
+				},
 			},
 			Subject: &ses.Content{ // Required
 				Data:    aws.String(emailData.Subject), // Required
